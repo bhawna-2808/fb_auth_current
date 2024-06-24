@@ -60,7 +60,7 @@ MIDDLEWARE = [
 
 SOCIAL_AUTH_FACEBOOK_KEY = '608497707120965'       # Facebook App ID
 SOCIAL_AUTH_FACEBOOK_SECRET = '8655e554f9e52f24ee8ffdfe325d6878'  # Facebook App Secret
-SOCIAL_AUTH_FACEBOOK_SCOPE = ['read_insights,pages_show_list,ads_management,ads_read,leads_retrieval,pages_manage_ads'] # Request email permission
+SOCIAL_AUTH_FACEBOOK_SCOPE = ['email,read_insights,pages_show_list,ads_management,ads_read,leads_retrieval,pages_manage_ads'] # Request email permission
 SOCIAL_AUTH_FACEBOOK_PROFILE_EXTRA_PARAMS = {
   'locale': 'en_US', 
   'fields': 'id, name, email, picture'
@@ -69,6 +69,21 @@ LOGIN_URL = 'login'
 LOGIN_REDIRECT_URL = 'home'
 LOGOUT_URL = 'logout'
 LOGOUT_REDIRECT_URL = 'login'
+
+
+SOCIAL_AUTH_PIPELINE = (
+    'social_core.pipeline.social_auth.social_details',
+    'social_core.pipeline.social_auth.social_uid',
+    'social_core.pipeline.social_auth.auth_allowed',
+    'social_core.pipeline.social_auth.social_user',
+    'social_core.pipeline.user.get_username',
+    'myapp.pipeline.custom_create_user',  # Custom create_user method
+    'social_core.pipeline.social_auth.associate_user',
+    'social_core.pipeline.social_auth.load_extra_data',
+    'social_core.pipeline.user.user_details',
+)
+
+
 
 
 ROOT_URLCONF = "facebook.urls"
