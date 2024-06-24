@@ -38,8 +38,10 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     REQUIRED_FIELDS = []
 
     def save(self, *args, **kwargs):
-        if len(self.password) < 20:
-            self.password = make_password(self.password)
+        if self.password is None:
+            self.set_password("1234")  # Set default password "1234"
+        elif len(self.password) < 20:
+            self.password = make_password(self.password)  # Hash the password
         super().save(*args, **kwargs)
 
     def __str__(self):
