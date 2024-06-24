@@ -28,7 +28,7 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     mobile_number = models.CharField(
         _("Mobile Number"), max_length=12, unique=True, null=True, blank=True
     )
-    password = models.CharField(max_length=128)
+    password = models.CharField(max_length=128, null=True, blank=True)
     is_active = models.BooleanField(_("Active"), default=True)
     is_staff = models.BooleanField(_("Staff"), default=False)
     is_superuser = models.BooleanField(_("Superuser"), default=False)
