@@ -11,10 +11,8 @@ def custom_create_user(strategy, details, backend, user=None, *args, **kwargs):
         return {'is_new': False}
 
     fields = {
-        'username': details.get('username') or details.get('email').split('@')[0],
+        'full_name': details.get('first_name') or details.get('email').split('@')[0],
         'email': details.get('email'),
-        'first_name': details.get('first_name'),
-        'last_name': details.get('last_name')
     }
 
     if not fields['email']:
