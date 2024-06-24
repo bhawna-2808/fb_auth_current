@@ -8,7 +8,8 @@
         {% if user.is_authenticated %}
             <h4 class="text-center">Welcome {{ user.username }}</h4>
             <p class="text-center">
-                <a href="{% url 'logout' %}" class="btn btn-primary">Logout</a>
+                    <a href="{% url 'logout' %}" class="alert-link">Logout</a> and login with a different account.
+
             </p>
         {% else %}
             <h4 class="text-center">Welcome Guest</h4>

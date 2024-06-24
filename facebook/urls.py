@@ -27,8 +27,8 @@ urlpatterns = [
     path('', include('mainApp.urls')),  # Replace with your app's URL config
     path('privacy-policy', views.privacy, name='privacy-policy'),
     path('terms-condition', views.terms, name='terms-condition'),
-     path('login/', views.login, name='login'),
-    path('logout/', auth_views.LogoutView.as_view(), name='logout'),
+    path('login/', views.login, name='login'),
+    path('logout/', auth_views.LogoutView.as_view(next_page='/'), name='logout'),
     path('social-auth/', include('social_django.urls', namespace='social')),
     path("", views.home, name='home'),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
