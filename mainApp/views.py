@@ -57,7 +57,7 @@ class FacebookLeadsView(APIView):
             facebook_access_token = "EAAIpbOmtZBUUBOZCJTDewdDSSUbNcSiCUO9u38CJcNZCYG5VVUuCo4ZAIsZBj07FQs0VdXoIHXnk7xSZA6bZBmkFL06lpsmwvsVHwGNKAc0pvVZABIEA7h6IyWuGLuPYNSRcxdPWJpE1TBTDFZAZBjDS2UAxtdDovsFd8ZAGZANNi7Uv0JYm5HZAcfTr6jmbNQUYo4Iuu6vT2ilUnKuL8WfzUCUHZCCUZBTCxfWToAQVDBs1EedzKqyKsdE2GFcBwZCghAnd" 
 
 
-            facebook_api_url = f'https://graph.facebook.com/v12.0/{lead_id}?fields=field_data&access_token={facebook_access_token}'
+            facebook_api_url = f'https://graph.facebook.com/v12.0/{lead_id}?fields=name,leads&access_token={facebook_access_token}'
 
             # Fetch leads data from Facebook
             response = requests.get(facebook_api_url)
