@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "mainApp",
-    "social_django"
+    "social_django",
+    "rest_framework"
 ]
 
 AUTHENTICATION_BACKENDS = (

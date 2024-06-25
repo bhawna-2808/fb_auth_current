@@ -19,8 +19,9 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 from mainApp import views
-
+from .views import *
 
 urlpatterns = [
-   
+    path('api/facebook-leads/', FacebookLeadsView.as_view(), name='facebook-leads-api'),
+
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
