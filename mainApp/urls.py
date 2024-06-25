@@ -23,5 +23,6 @@ from .views import *
 
 urlpatterns = [
     path('api/facebook-leads/', FacebookLeadsView.as_view(), name='facebook-leads-api'),
+    path('api/monday-data/', MondayDataView.as_view(), name='monday-data-api'),
 
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
